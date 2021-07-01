@@ -1,4 +1,4 @@
-package ua.onlineua.homework.junit.calculation;
+package ua.onlineua.homework.hw2_junit.calculation;
 
 public class Arithmetics {
 

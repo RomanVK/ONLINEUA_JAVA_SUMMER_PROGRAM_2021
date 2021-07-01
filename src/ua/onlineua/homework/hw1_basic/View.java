@@ -1,4 +1,4 @@
-package ua.onlineua.homework.basic;
+package ua.onlineua.homework.hw1_basic;
 
 /**
  * Created by RomanVK on 24.06.2021.

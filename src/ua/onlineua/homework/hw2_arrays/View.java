@@ -1,4 +1,4 @@
-package ua.onlineua.homework.arrays;
+package ua.onlineua.homework.hw2_arrays;
 /**
  * Created by RomanVK on 26.06.2021.
  */

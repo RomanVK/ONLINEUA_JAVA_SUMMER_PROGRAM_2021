@@ -1,9 +1,9 @@
-package ua.onlineua.homework.junit.test;
+package ua.onlineua.homework.hw2_junit.test;
 
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 import org.junit.rules.Timeout;
-import ua.onlineua.homework.junit.calculation.Arithmetics;
+import ua.onlineua.homework.hw2_junit.calculation.Arithmetics;
 
 import java.util.concurrent.TimeUnit;
 

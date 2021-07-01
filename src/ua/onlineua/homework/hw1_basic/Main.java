@@ -1,6 +1,7 @@
-package ua.onlineua.homework.arrays;
+package ua.onlineua.homework.hw1_basic;
+
 /**
- * Created by RomanVK on 26.06.2021.
+ * Created by RomanVK on 24.06.2021.
  */
 public class Main {
     public static void main(String[] args) {

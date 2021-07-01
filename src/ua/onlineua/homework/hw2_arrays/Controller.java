@@ -1,4 +1,4 @@
-package ua.onlineua.homework.arrays;
+package ua.onlineua.homework.hw2_arrays;
 
 import java.util.Scanner;
 
