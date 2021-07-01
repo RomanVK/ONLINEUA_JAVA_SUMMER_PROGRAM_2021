@@ -24,27 +24,47 @@ public class Model {
                 + GlobalConstants.DEFAULT_MINIMUM));
     }
 
-    public void setPrimaryBarrier(int lastMinimumNumber, int lastMaximumNumber){
-        this.lastMinimumNumber = lastMinimumNumber;
-        this.lastMaximumNumber = lastMaximumNumber;
+    public void setHiddenNumber(int hiddenNumber){
+        this.hiddenNumber = hiddenNumber;
     }
 
     public int getHiddenNumber(){
         return hiddenNumber;
     }
 
+    public void setPrimaryBarrier(int lastMinimumNumber, int lastMaximumNumber){
+        this.lastMinimumNumber = lastMinimumNumber;
+        this.lastMaximumNumber = lastMaximumNumber;
+    }
+
     public int getLastInputNumber(){
         return lastInputNumber;
     }
 
+    public void setLastInputNumber(int lastInputNumber) {
+        this.lastInputNumber = lastInputNumber;
+    }
+
     public void setActualRange(){
         if (hiddenNumber > this.lastInputNumber) {
-            ratio = "less";
-            lastMinimumNumber = this.lastInputNumber + 1;
+            setRatio("less");
+            setLastMinimumNumber(lastInputNumber + 1);
         } else {
-            ratio = "greater";
-            lastMaximumNumber = this.lastInputNumber - 1;
+            setRatio("great");
+            setLastMaximumNumber(lastInputNumber - 1);
         }
+    }
+
+    public void setLastMinimumNumber(int lastMinimumNumber){
+        this.lastMinimumNumber = lastMinimumNumber;
+    }
+
+    public void setLastMaximumNumber(int lastMaximumNumber) {
+        this.lastMaximumNumber = lastMaximumNumber;
+    }
+
+    public void setRatio(String ratio){
+        this.ratio = ratio;
     }
 
     public int getLastMinimumNumber(){
@@ -60,8 +80,12 @@ public class Model {
     }
 
     public void addValidAttempt(int validAttempt){
-        lastInputNumber = validAttempt;
-        validAttempts[validAttempt] = validAttempt;
+        setLastInputNumber(validAttempt);
+        setValidAttempts(validAttempt);
+    }
+
+    public void setValidAttempts(int validAttempt){
+        this.validAttempts[validAttempt] = validAttempt;
     }
 
     public String getRatio(){
