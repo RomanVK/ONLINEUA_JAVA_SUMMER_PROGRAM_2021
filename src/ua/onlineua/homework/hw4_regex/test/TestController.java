@@ -11,4 +11,11 @@ public class TestController {
         boolean isNameValid = controller.validateName("Ivan Ivanovich Ivanov");
         Assert.assertTrue(isNameValid);
     }
+
+    @Test
+    public void testValidNickname(){
+        Controller controller = new Controller();
+        boolean isNameValid = controller.validateNickname("VanVanich99");
+        Assert.assertTrue(isNameValid);
+    }
 }

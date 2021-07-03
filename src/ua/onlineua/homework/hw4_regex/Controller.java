@@ -25,4 +25,22 @@ public class Controller {
         }
         return false;
     }
+
+    /**
+     * Indicates whether nickname is matches with next rules:
+     * 1. Allowed characters is a...z, A...Z, 0...9 in any order;
+     * 2. Length of nickname must be from 6 to 30 include.
+     *
+     * @param nickname the nickname which to validate
+     * @return  {@code true} if this nickname is matches with regex;
+     *          {@code false} otherwise.
+     */
+    public boolean validateNickname(String nickname) {
+        Pattern lettersPattern = Pattern.compile("([a-zA-Z0-9]){6,30}");
+        Matcher lettersMatcher = lettersPattern.matcher(nickname);
+        if(lettersMatcher.matches()){
+            return true;
+        }
+        return false;
+    }
 }
