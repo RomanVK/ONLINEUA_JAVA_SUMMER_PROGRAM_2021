@@ -1,5 +1,6 @@
 package ua.onlineua.homework.hw4_regex;
 
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +23,44 @@ public class Controller {
     // The Work method
     public void processUser() {
 
+    }
+
+    /**
+     * Provides input Name of the User with console
+     * @param sc Scanner object
+     */
+    private String inputNameWithScanner(Scanner sc){
+        String name;
+        while(true){
+            while (!sc.hasNextLine()){
+                view.printMessage(View.SURNAME_IS_WRONG);
+                view.printMessage(View.RULES_SURNAME);
+                view.printMessage(View.TRY_AGAIN);
+                sc.next();
+            }
+            name = sc.nextLine();
+            break;
+        }
+        return name;
+    }
+
+    /**
+     * Provides input Nickname of the User with console
+     * @param sc Scanner object
+     */
+    private String inputNicknameWithScanner(Scanner sc){
+        String nickname;
+        while(true){
+            while (!sc.hasNextLine()){
+                view.printMessage(View.NICKNAME_IS_WRONG);
+                view.printMessage(View.RULES_Nickname);
+                view.printMessage(View.TRY_AGAIN);
+                sc.next();
+            }
+            nickname = sc.nextLine();
+            break;
+        }
+        return nickname;
     }
 
     /**
