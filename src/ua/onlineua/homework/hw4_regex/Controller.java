@@ -9,6 +9,16 @@ import java.util.regex.Pattern;
  * and gets the result of business logic. After that gives this result to the User.
  */
 public class Controller {
+
+    // Constructor
+    private Model model;
+    private View view;
+
+    public Controller(Model model, View view) {
+        this.model  = model;
+        this.view = view;
+    }
+
     /**
      * Indicates whether name is matches with regex.
      * Regex is ^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$
