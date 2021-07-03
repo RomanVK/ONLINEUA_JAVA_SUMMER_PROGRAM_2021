@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
  * and gets the result of business logic. After that gives this result to the User.
  */
 public class Controller {
+    private String name;
+    private String nickname;
 
     // Constructor
     private Model model;
@@ -22,45 +24,25 @@ public class Controller {
 
     // The Work method
     public void processUser() {
-
+        Scanner sc = new Scanner(System.in);
+        view.printMessage(View.INTRO_MESSAGE);
+        view.printMessage(View.INPUT_SURNAME);
+        //validation name
+        while(!validateName(name = inputWithScanner(sc)));
+        //validation nickname
+        view.printMessage(View.INPUT_NICKNAME);
+        while(!validateNickname(nickname = inputWithScanner(sc)));
+        //add data for Note to Model
+        model.addNote(name, nickname);
+        view.printMessage("Added Note with\nname: " + name + "\nand nickname: " + nickname);
     }
 
     /**
-     * Provides input Name of the User with console
+     * Provides input data about User with console
      * @param sc Scanner object
      */
-    private String inputNameWithScanner(Scanner sc){
-        String name;
-        while(true){
-            while (!sc.hasNextLine()){
-                view.printMessage(View.SURNAME_IS_WRONG);
-                view.printMessage(View.RULES_SURNAME);
-                view.printMessage(View.TRY_AGAIN);
-                sc.next();
-            }
-            name = sc.nextLine();
-            break;
-        }
-        return name;
-    }
-
-    /**
-     * Provides input Nickname of the User with console
-     * @param sc Scanner object
-     */
-    private String inputNicknameWithScanner(Scanner sc){
-        String nickname;
-        while(true){
-            while (!sc.hasNextLine()){
-                view.printMessage(View.NICKNAME_IS_WRONG);
-                view.printMessage(View.RULES_Nickname);
-                view.printMessage(View.TRY_AGAIN);
-                sc.next();
-            }
-            nickname = sc.nextLine();
-            break;
-        }
-        return nickname;
+    private String inputWithScanner(Scanner sc) {
+        return sc.nextLine();
     }
 
     /**
@@ -77,6 +59,9 @@ public class Controller {
         if(lettersMatcher.matches()){
             return true;
         }
+        view.printMessage(View.SURNAME_IS_WRONG);
+        view.printMessage(View.RULES_SURNAME);
+        view.printMessage(View.TRY_AGAIN);
         return false;
     }
 
@@ -95,6 +80,9 @@ public class Controller {
         if(lettersMatcher.matches()){
             return true;
         }
+        view.printMessage(View.NICKNAME_IS_WRONG);
+        view.printMessage(View.RULES_Nickname);
+        view.printMessage(View.TRY_AGAIN);
         return false;
     }
 }

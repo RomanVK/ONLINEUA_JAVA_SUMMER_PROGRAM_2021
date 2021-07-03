@@ -17,7 +17,7 @@ public class TestController {
     @Test
     public void testValidNickname(){
         Controller controller = new Controller(new Model(), new View());
-        boolean isNameValid = controller.validateNickname("VanVanich99");
-        Assert.assertTrue(isNameValid);
+        boolean isNicknameValid = controller.validateNickname("VanVanich99");
+        Assert.assertTrue(isNicknameValid);
     }
 }
