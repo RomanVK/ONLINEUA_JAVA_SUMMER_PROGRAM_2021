@@ -8,7 +8,7 @@ public class TestController {
     @Test
     public void testValidateName(){
         Controller controller = new Controller();
-        boolean isNameValid = controller.validateName();
+        boolean isNameValid = controller.validateName("Ivan");
         Assert.assertTrue(isNameValid);
     }
 }
