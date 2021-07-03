@@ -32,9 +32,9 @@ public class Controller {
         //validation nickname
         view.printMessage(View.INPUT_NICKNAME);
         while(!validateNickname(nickname = inputWithScanner(sc)));
-        //add data for Note to Model
+        //add Note into Model
         model.addNote(name, nickname);
-        view.printMessage("Added Note with\nname: " + name + "\nand nickname: " + nickname);
+        view.printMessage(model.getInfoAboutLastAddedNote());
     }
 
     /**

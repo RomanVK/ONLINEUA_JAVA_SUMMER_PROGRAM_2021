@@ -9,10 +9,28 @@ import java.util.ArrayList;
  */
 public class Model {
 
-    ArrayList<Note> noteBook = new ArrayList<>();
+    private ArrayList<Note> noteBook = new ArrayList<>();
 
+    /**
+     * Add Note with the fallowing parameters:
+     * @param name User name
+     * @param nickname User nickname
+     */
     public void addNote(String name, String nickname){
         noteBook.add(new Note(name, nickname));
+    }
+
+    /**
+     * Gives data about last added note
+     *
+     * @return String from the data about last added Note
+     */
+    public String getInfoAboutLastAddedNote(){
+        return "Note (name: " +
+                noteBook.get(noteBook.size() - 1).name +
+                ", nickname: " +
+                noteBook.get(noteBook.size() - 1).nickname +
+                ") is added";
     }
 
 }
