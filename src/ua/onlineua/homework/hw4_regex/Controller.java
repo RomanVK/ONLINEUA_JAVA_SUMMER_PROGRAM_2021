@@ -19,6 +19,11 @@ public class Controller {
         this.view = view;
     }
 
+    // The Work method
+    public void processUser() {
+
+    }
+
     /**
      * Indicates whether name is matches with regex.
      * Regex is ^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$
