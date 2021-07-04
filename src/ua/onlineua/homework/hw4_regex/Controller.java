@@ -46,11 +46,14 @@ public class Controller {
     }
 
     /**
-     * Indicates whether name is matches with regex.
-     * Regex is ^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$
+     * Indicates whether the name is matches with the fallowing rules:
+     * 1. The name must start with the characters a...z or A...Z;
+     * 2. For fallowing characters, the fallowing are allowed: a...z or A...Z or ' or , or -;
+     * 3. It is allowed to use several words in the name;
+     * 3. The name must be ended a...z or A...Z.
      *
      * @param name the name which to validate
-     * @return  {@code true} if this name is matches with regex;
+     * @return  {@code true} if this name is matches with rules;
      *          {@code false} otherwise.
      */
     public boolean validateName(String name) {
@@ -71,7 +74,7 @@ public class Controller {
      * 2. Length of nickname must be from 6 to 30 include.
      *
      * @param nickname the nickname which to validate
-     * @return  {@code true} if this nickname is matches with regex;
+     * @return  {@code true} if this nickname is matches with rules;
      *          {@code false} otherwise.
      */
     public boolean validateNickname(String nickname) {
