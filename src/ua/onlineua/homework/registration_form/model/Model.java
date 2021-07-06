@@ -1,4 +1,4 @@
-package ua.onlineua.homework.registration_form;
+package ua.onlineua.homework.registration_form.model;
 
 import java.util.ArrayList;
 /**

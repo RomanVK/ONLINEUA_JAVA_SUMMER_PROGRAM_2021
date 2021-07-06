@@ -1,4 +1,4 @@
-package ua.onlineua.homework.registration_form;
+package ua.onlineua.homework.registration_form.view;
 
 /**
  * Class {@code View} is part of the MVC pattern.

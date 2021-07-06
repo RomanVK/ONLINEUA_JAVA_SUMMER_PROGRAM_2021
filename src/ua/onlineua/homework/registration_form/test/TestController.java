@@ -2,9 +2,9 @@ package ua.onlineua.homework.registration_form.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ua.onlineua.homework.registration_form.Controller;
-import ua.onlineua.homework.registration_form.Model;
-import ua.onlineua.homework.registration_form.View;
+import ua.onlineua.homework.registration_form.controller.Controller;
+import ua.onlineua.homework.registration_form.model.Model;
+import ua.onlineua.homework.registration_form.view.View;
 
 public class TestController {
     @Test
