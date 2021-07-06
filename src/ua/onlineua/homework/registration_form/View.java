@@ -1,4 +1,4 @@
-package ua.onlineua.homework.hw4_regex;
+package ua.onlineua.homework.registration_form;
 
 /**
  * Class {@code View} is part of the MVC pattern.

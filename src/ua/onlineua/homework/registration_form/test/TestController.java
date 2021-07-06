@@ -1,10 +1,10 @@
-package ua.onlineua.homework.hw4_regex.test;
+package ua.onlineua.homework.registration_form.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import ua.onlineua.homework.hw4_regex.Controller;
-import ua.onlineua.homework.hw4_regex.Model;
-import ua.onlineua.homework.hw4_regex.View;
+import ua.onlineua.homework.registration_form.Controller;
+import ua.onlineua.homework.registration_form.Model;
+import ua.onlineua.homework.registration_form.View;
 
 public class TestController {
     @Test

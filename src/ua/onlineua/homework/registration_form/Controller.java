@@ -1,4 +1,4 @@
-package ua.onlineua.homework.hw4_regex;
+package ua.onlineua.homework.registration_form;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
