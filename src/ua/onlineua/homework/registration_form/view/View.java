@@ -1,5 +1,10 @@
 package ua.onlineua.homework.registration_form.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import static ua.onlineua.homework.registration_form.view.TextConstant.*;
+
 /**
  * Class {@code View} is part of the MVC pattern.
  * It shows data to User.
@@ -7,18 +12,14 @@ package ua.onlineua.homework.registration_form.view;
  *  @author  RomanVK
  */
 public class View {
-    public static final String INTRO_MESSAGE =
-            "To add a new note to you notebook you must input the following information:";
-    public static final String INPUT_SURNAME = "Input Surname: ";
-    public static final String RULES_SURNAME =
-            "For the surname can be used only alphabetical characters" +
-                    "and the fallowing utility characters \''\' , \'.\',  \'-\'.";
-    public static final String INPUT_NICKNAME = "Input Nickname: ";
-    public static final String RULES_Nickname =
-            "For the nickname can be used only letters and numbers. Nickname length must be from 6 to 30 characters.";
-    public static final String SURNAME_IS_WRONG = "Surname is wrong.";
-    public static final String NICKNAME_IS_WRONG = "Nickname is wrong.";
-    public static final String TRY_AGAIN = "Please,try again.";
+
+    // Resource Bundle Installation's
+    static String MESSAGES_BUNDLE_NAME = "messages";
+    public static final ResourceBundle bundle =
+            ResourceBundle.getBundle(
+                    MESSAGES_BUNDLE_NAME,
+                    new Locale("ua", "UA"));  // Ukrainian
+                    //new Locale("en"));        // English
 
     /**
      * Prints a message from one String argument
