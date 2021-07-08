@@ -14,10 +14,10 @@ public class Model {
     /**
      * Add Note with the fallowing parameters:
      * @param name User name
-     * @param nickname User nickname
+     * @param login User login
      */
-    public void addNote(String name, String nickname){
-        noteBook.add(new Note(name, nickname));
+    public void addNote(String name, String login){
+        noteBook.add(new Note(name, login));
     }
 
     /**
@@ -28,24 +28,24 @@ public class Model {
     public String getInfoAboutLastAddedNote(){
         return "Note (name: " +
                 noteBook.get(noteBook.size() - 1).name +
-                ", nickname: " +
-                noteBook.get(noteBook.size() - 1).nickname +
-                ") is added";
+                ", login: " +
+                noteBook.get(noteBook.size() - 1).login +
+                ")";
     }
 
 }
 
 /**
- * Class {@code Note} contains User's name and nickname .
+ * Class {@code Note} contains User's name and login .
  *
  * @author  RomanVK
  */
 class Note{
     String name;
-    String nickname;
+    String login;
 
-    Note(String name, String nickname){
+    Note(String name, String login){
         this.name = name;
-        this.nickname = nickname;
+        this.login = login;
     }
 }
