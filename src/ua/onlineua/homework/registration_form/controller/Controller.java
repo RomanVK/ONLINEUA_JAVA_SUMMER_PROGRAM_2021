@@ -5,10 +5,9 @@ import ua.onlineua.homework.registration_form.view.TextConstant;
 import ua.onlineua.homework.registration_form.view.View;
 import static ua.onlineua.homework.registration_form.controller.RegexContainer.REGEX_NAME_UKR;
 import static ua.onlineua.homework.registration_form.controller.RegexContainer.REGEX_NAME_LAT;
+import static ua.onlineua.homework.registration_form.controller.RegexContainer.REGEX_LOGIN;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Class {@code Controller} is part of the MVC pattern.
@@ -37,7 +36,7 @@ public class Controller {
         while(!validateName(name = inputWithScanner(sc)));
         //validation nickname
         view.printMessage(View.bundle.getString(TextConstant.INPUT_LOGIN));
-        while(!validateNickname(nickname = inputWithScanner(sc)));
+        while(!validateLogin(nickname = inputWithScanner(sc)));
         //add Note into Model
         model.addNote(name, nickname);
         view.printMessage(model.getInfoAboutLastAddedNote());
@@ -71,18 +70,14 @@ public class Controller {
     }
 
     /**
-     * Indicates whether nickname is matches with next rules:
-     * 1. Allowed characters is a...z, A...Z, 0...9 in any order;
-     * 2. Length of nickname must be from 6 to 30 include.
+     * Indicates whether login is matches with according regular expression.
      *
-     * @param nickname the nickname which to validate
+     * @param login the login which to validate
      * @return  {@code true} if this nickname is matches with rules;
      *          {@code false} otherwise.
      */
-    public boolean validateNickname(String nickname) {
-        Pattern lettersPattern = Pattern.compile("([a-zA-Z0-9]){6,30}");
-        Matcher lettersMatcher = lettersPattern.matcher(nickname);
-        if(lettersMatcher.matches()){
+    public boolean validateLogin(String login) {
+        if(login.matches(REGEX_LOGIN)){
             return true;
         }
         view.printMessage(View.bundle.getString(TextConstant.LOGIN_IS_WRONG));
