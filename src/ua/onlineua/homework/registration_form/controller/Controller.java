@@ -1,6 +1,7 @@
 package ua.onlineua.homework.registration_form.controller;
 
 import ua.onlineua.homework.registration_form.model.Model;
+import ua.onlineua.homework.registration_form.view.TextConstant;
 import ua.onlineua.homework.registration_form.view.View;
 
 import java.util.Scanner;
@@ -28,12 +29,12 @@ public class Controller {
     // The Work method
     public void processUser() {
         Scanner sc = new Scanner(System.in);
-        view.printMessage(View.INTRO_MESSAGE);
-        view.printMessage(View.INPUT_SURNAME);
+        view.printMessage(View.bundle.getString(TextConstant.INTRO_MESSAGE));
+        view.printMessage(View.bundle.getString(TextConstant.INPUT_NAME));
         //validation name
         while(!validateName(name = inputWithScanner(sc)));
         //validation nickname
-        view.printMessage(View.INPUT_NICKNAME);
+        view.printMessage(View.bundle.getString(TextConstant.INPUT_LOGIN));
         while(!validateNickname(nickname = inputWithScanner(sc)));
         //add Note into Model
         model.addNote(name, nickname);
@@ -65,9 +66,9 @@ public class Controller {
         if(lettersMatcher.matches()){
             return true;
         }
-        view.printMessage(View.SURNAME_IS_WRONG);
-        view.printMessage(View.RULES_SURNAME);
-        view.printMessage(View.TRY_AGAIN);
+        view.printMessage(View.bundle.getString(TextConstant.NAME_IS_WRONG));
+        view.printMessage(View.bundle.getString(TextConstant.RULES_NAME));
+        view.printMessage(View.bundle.getString(TextConstant.TRY_AGAIN));
         return false;
     }
 
@@ -86,9 +87,9 @@ public class Controller {
         if(lettersMatcher.matches()){
             return true;
         }
-        view.printMessage(View.NICKNAME_IS_WRONG);
-        view.printMessage(View.RULES_Nickname);
-        view.printMessage(View.TRY_AGAIN);
+        view.printMessage(View.bundle.getString(TextConstant.LOGIN_IS_WRONG));
+        view.printMessage(View.bundle.getString(TextConstant.RULES_LOGIN));
+        view.printMessage(View.bundle.getString(TextConstant.TRY_AGAIN));
         return false;
     }
 }
