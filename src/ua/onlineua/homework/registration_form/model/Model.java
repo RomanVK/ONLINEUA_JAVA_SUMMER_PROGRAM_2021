@@ -1,6 +1,8 @@
 package ua.onlineua.homework.registration_form.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Class {@code Model} is part of the MVC pattern.
  * It contains business logic and data.
@@ -9,29 +11,32 @@ import java.util.ArrayList;
  */
 public class Model {
 
-    private ArrayList<Note> noteBook = new ArrayList<>();
+    private HashMap<String, String> noteBook = new HashMap<>();
 
     /**
      * Add Note with the fallowing parameters:
      * @param name User name
      * @param login User login
      */
-    public void addNote(String name, String login){
-        noteBook.add(new Note(name, login));
+    public void addNote (String name, String login) throws LoginAlreadyTakenException{
+        if (!noteBook.containsKey(login)){
+            noteBook.put(login, name);
+        }
+        throw new LoginAlreadyTakenException();
     }
 
-    /**
-     * Gives data about last added note
-     *
-     * @return String from the data about last added Note
-     */
-    public String getInfoAboutLastAddedNote(){
-        return "Note (name: " +
-                noteBook.get(noteBook.size() - 1).name +
-                ", login: " +
-                noteBook.get(noteBook.size() - 1).login +
-                ")";
-    }
+//    /**
+//     * Gives data about last added note
+//     *
+//     * @return String from the data about last added Note
+//     */
+//    public String getInfoAboutLastAddedNote(){
+//        return "Note (name: " +
+//                noteBook.get(login) +
+//                ", login: " +
+//                noteBook.get(noteBook.size() - 1).login +
+//                ")";
+//    }
 
 }
 
