@@ -3,6 +3,8 @@ package ua.onlineua.homework.registration_form.controller;
 import ua.onlineua.homework.registration_form.model.Model;
 import ua.onlineua.homework.registration_form.view.TextConstant;
 import ua.onlineua.homework.registration_form.view.View;
+import static ua.onlineua.homework.registration_form.controller.RegexContainer.REGEX_NAME_UKR;
+import static ua.onlineua.homework.registration_form.controller.RegexContainer.REGEX_NAME_LAT;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -50,20 +52,16 @@ public class Controller {
     }
 
     /**
-     * Indicates whether the name is matches with the fallowing rules:
-     * 1. The name must start with the characters a...z or A...Z;
-     * 2. For fallowing characters, the fallowing are allowed: a...z or A...Z or ' or , or -;
-     * 3. It is allowed to use several words in the name;
-     * 3. The name must be ended a...z or A...Z.
+     * Indicates whether the name is matches with according regular expression.
      *
      * @param name the name which to validate
      * @return  {@code true} if this name is matches with rules;
      *          {@code false} otherwise.
      */
     public boolean validateName(String name) {
-        Pattern lettersPattern = Pattern.compile("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$");
-        Matcher lettersMatcher = lettersPattern.matcher(name);
-        if(lettersMatcher.matches()){
+        String regex = (String.valueOf(View.bundle.getLocale()).equals("ua"))
+                ? REGEX_NAME_UKR : REGEX_NAME_LAT;
+        if(name.matches(regex)){
             return true;
         }
         view.printMessage(View.bundle.getString(TextConstant.NAME_IS_WRONG));
