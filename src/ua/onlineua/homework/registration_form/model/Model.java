@@ -13,6 +13,10 @@ public class Model {
 
     private HashMap<String, String> noteBook = new HashMap<>();
 
+    {
+        noteBook.put("TarasTaras", "Тарас");
+    }
+
     /**
      * Add Note with the fallowing parameters:
      * @param name User name
@@ -21,22 +25,23 @@ public class Model {
     public void addNote (String name, String login) throws LoginAlreadyTakenException{
         if (!noteBook.containsKey(login)){
             noteBook.put(login, name);
+        } else {
+            throw new LoginAlreadyTakenException();
         }
-        throw new LoginAlreadyTakenException();
     }
 
-//    /**
-//     * Gives data about last added note
-//     *
-//     * @return String from the data about last added Note
-//     */
-//    public String getInfoAboutLastAddedNote(){
-//        return "Note (name: " +
-//                noteBook.get(login) +
-//                ", login: " +
-//                noteBook.get(noteBook.size() - 1).login +
-//                ")";
-//    }
+    /**
+     * Gives data about last added note
+     *
+     * @return String from the data about last added Note
+     */
+    public String getInfoAboutLastAddedNote(String login){
+        return "Note (name: " +
+                noteBook.get(login) +
+                ", login: " +
+                login +
+                ")";
+    }
 
 }
 

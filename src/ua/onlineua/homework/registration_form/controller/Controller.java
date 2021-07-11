@@ -1,5 +1,6 @@
 package ua.onlineua.homework.registration_form.controller;
 
+import ua.onlineua.homework.registration_form.model.LoginAlreadyTakenException;
 import ua.onlineua.homework.registration_form.model.Model;
 import ua.onlineua.homework.registration_form.view.TextConstant;
 import ua.onlineua.homework.registration_form.view.View;
@@ -38,8 +39,18 @@ public class Controller {
         view.printMessage(View.bundle.getString(TextConstant.INPUT_LOGIN));
         while(!validateLogin(nickname = inputWithScanner(sc)));
         //add Note into Model
-        model.addNote(name, nickname);
-        view.printMessage(model.getInfoAboutLastAddedNote());
+        while(true){
+            try{
+                model.addNote(name, nickname);
+                break;
+            } catch (LoginAlreadyTakenException e) {
+                System.out.println("Login has already taken : " + nickname);
+                view.printMessage(View.bundle.getString(TextConstant.INPUT_LOGIN));
+                while(!validateLogin(nickname = inputWithScanner(sc)));
+            }
+        }
+        //print added Note
+        view.printMessage(model.getInfoAboutLastAddedNote(nickname));
     }
 
     /**
